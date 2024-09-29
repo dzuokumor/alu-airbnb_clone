@@ -12,7 +12,14 @@ class User(BaseModel):
         last_name (str): The last name of the user.
     """
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    def __init__(self, *args, **kwargs):
+        """Initialize a User instance."""
+        super().__init__(*args, **kwargs)
+        self.email = ""
+        self.password = ""
+        self.first_name = ""
+        self.last_name = ""
+
+    def __str__(self):
+        """Return a string representation of the User instance."""
+        return f"[User] ({self.id}) {self.__dict__}"
